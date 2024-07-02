@@ -12,7 +12,7 @@ const Home = () => {
             {showLogin
                 ? <LoginPopup />
                 : <div className="welcome-container">
-                    <h1 className="welcome-message">Welcome to the Admin Panel</h1>
+                    <h1 className="welcome-message">Welcome to the Admin Panel!</h1>
                     <p className='emoji'>💻</p>
                 </div>
             }
