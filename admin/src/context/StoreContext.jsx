@@ -14,10 +14,10 @@ const StoreContextProvider = (props) => {
                 setToken(localStorage.getItem("token"));
             }
             if (!token) {
-                setShowLogin(false);
+                setShowLogin(true);
             }
             else {
-                setShowLogin(true);
+                setShowLogin(false);
             }
         }
         loadToken();

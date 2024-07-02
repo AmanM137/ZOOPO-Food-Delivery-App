@@ -25,9 +25,9 @@ const App = () => {
         <Routes>
           {/*<Route path="/" element={<Navigate to="/orders" />} />*/}
           <Route path="/" element={<Home />} />
-          <Route path="/orders" element={token ? <Navigate to="/" /> : <Orders />} />
-          <Route path="/list" element={token ? <Navigate to="/" /> : <List />} />
-          <Route path="/add" element={token ? <Navigate to="/" /> : <Add />} />
+          <Route path="/orders" element={token ? <Orders />:<Navigate to="/" /> } />
+          <Route path="/list" element={token ? <List />:<Navigate to="/" /> } />
+          <Route path="/add" element={token ? <Add />:<Navigate to="/" /> } />
         </Routes>
       </div>
     </div>
