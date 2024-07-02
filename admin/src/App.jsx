@@ -12,7 +12,7 @@ import { StoreContext } from './context/StoreContext'
 
 const App = () => {
 
-  const url = "http://localhost:4000";
+  const url = "https://zoopo-server.onrender.com";
   const { token } = useContext(StoreContext);
 
   return (
