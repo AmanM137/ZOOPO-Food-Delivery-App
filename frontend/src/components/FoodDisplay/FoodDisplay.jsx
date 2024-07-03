@@ -5,7 +5,7 @@ import FoodItem from '../FoodItem/FoodItem'
 
 const FoodDisplay = ({ category }) => {
 
-  const { food_list,loading } = useContext(StoreContext)
+  const { food_list, loading } = useContext(StoreContext)
 
   return (
     <div className='food-display' id='food-display'>
@@ -20,13 +20,13 @@ const FoodDisplay = ({ category }) => {
             console.log(category, item.category);
             if (category === 'All' || category === item.category) {
               return (
-                <FoodItem 
-                  key={index} 
-                  id={item._id} 
-                  name={item.name} 
-                  description={item.description} 
-                  price={item.price} 
-                  image={item.image} 
+                <FoodItem
+                  key={index}
+                  id={item._id}
+                  name={item.name}
+                  description={item.description}
+                  price={item.price}
+                  image={item.image}
                 />
               );
             }
@@ -35,7 +35,7 @@ const FoodDisplay = ({ category }) => {
         </div>
       )}
     </div>
-  );  
+  );
 }
 
 export default FoodDisplay
