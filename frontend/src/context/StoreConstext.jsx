@@ -8,7 +8,8 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const url = "https://zoopo-server.onrender.com";
     const [token, setToken] = useState("");
-    const [food_list, setFoodList] = useState([])
+    const [food_list, setFoodList] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
@@ -40,9 +41,15 @@ const StoreContextProvider = (props) => {
     }
 
     const fetchFoodList = async () => {
-        const response = await axios.get(url + "/api/food/list");
-        setFoodList(response.data.data);
-    }
+        try {
+          const response = await axios.get(url + "/api/food/list");
+          setFoodList(response.data.data);
+        } catch (error) {
+          console.error("Error fetching food list", error);
+        }finally {
+          setLoading(false);
+        }
+    };
 
     const loadCartData = async (token) => {
         const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } })
@@ -69,7 +76,9 @@ const StoreContextProvider = (props) => {
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        loading,
+        setLoading
     }
 
     return (
